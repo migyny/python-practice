@@ -2,6 +2,13 @@ print ("hello world")
 
 print("testing connection with github")
 
-tuple_sample = "a",True, 1
+letter = 'a'
+result = []
 
-print(type(tuple_sample))
+tuple_sample = ['apple', 'banana', 'cherry']
+
+for indx, item in enumerate(tuple_sample):
+    if letter in item:
+        result.append(indx)
+    
+print(result)
