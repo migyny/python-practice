@@ -1,3 +1,4 @@
+#######################################   Session 1 #######################################
 # -----------------Problem set 1--------------------
 
 # all_in() function
@@ -191,4 +192,209 @@ def index_to_value_map(lst):
 
 lst = ["apple", "banana", "cherry"]
 print(index_to_value_map(lst))
+'''
+
+# -------------------------Version Set 2-------------------
+
+#1
+
+# Steps:
+# create 2 boolean variables to store inc/decr order
+#loop through the list 
+# #check if the current number < next number or curr_num > next_num
+#return flase if pattern breaks
+
+#pseudo code
+'''
+func is_monotonic(nums)
+
+increasing = false
+decreasing = false    
+
+    for indx,num in enumerate(nums[0:-1])
+
+        if num => num+1
+            increasing = true
+        else
+            increasing = false
+        
+        if num <= num+1
+            decreasing = true
+        else
+            decreasing = fasle
+
+return increasing or decreasing  
+
+end
+'''
+'''
+def is_monotonic(nums):
+
+    increasing = True
+    decreasing = True  
+
+    for indx in range(len(nums)-1):
+
+        if nums[indx] != nums[indx+1]:
+
+            if nums[indx] > nums[indx+1]: #increasing
+                decreasing = False
+        
+            if nums[indx] < nums[indx+1]: #decreasing
+                increasing = False
+        
+
+    return increasing or decreasing
+    
+
+nums1 = [1,2,2,3,10]
+print(is_monotonic(nums1))
+
+nums2 = [12,9,8,3,1]
+print(is_monotonic(nums2))
+
+nums3 = [1,1,1]
+print(is_monotonic(nums3))
+
+nums4 = [1,9,8,3,5]
+print(is_monotonic(nums4))
+'''
+#2
+'''
+def student_directory(student_names):
+
+    student_id = {}
+
+    for indx, student in enumerate(student_names):
+        student_id[student] = indx+1
+        
+    
+    return student_id
+
+student_names = ["Ada Lovelace", "Tu Youyou", "Mae Jemison", "Rajeshwari Chatterjee", "Alan Turing"]
+print(student_directory(student_names))
+'''
+
+#3 
+'''
+def get_description(info, keys):
+    for key in keys:
+	    print(info.get(key, None))
+          
+info = {"name": "Tom", "age": "30", "occupation": "engineer"}
+keys = ["name", "occupation", "salary"]
+get_description(info, keys)
+'''
+#4
+'''
+def sum_even_values(dictionary):
+    sums = 0
+    for num in dictionary.values():
+        if num % 2 == 0:
+            sums +=num
+    return sums
+
+dictionary = {"a": 4, "b": 1, "c": 2, "d": 8, }
+print(sum_even_values(dictionary))
+'''
+
+#5
+'''
+#if we have new proce for rpoduct in catalog2
+#assign price in catalog2 to catalog1
+def merge_catalogs(catalog1,catalog2):
+
+    for product in catalog2:
+
+        catalog1[product]= catalog2[product]
+
+    return catalog1
+
+catalog1 = {"apple": 1.0, "banana": 0.5}
+catalog2 = {"banana": 0.75, "cherry": 1.25}
+print(merge_catalogs(catalog1,catalog2))
+'''
+#6
+'''
+def get_items_to_restock(products,restock_threshold):
+
+    items_restock =[]
+
+    for items in products:
+        if restock_threshold > products[items]:
+            items_restock.append(items)
+
+
+
+    return items_restock
+
+products = {"Product1": 10, "Product2": 2, "Product3": 5, "Product4": 3}
+restock_threshold = 5
+print(get_items_to_restock(products,restock_threshold))
+'''
+#7
+'''
+def most_popular_genre(movies):
+
+    genre_ratings = {}
+    for movie in movies:
+
+        genre = movie["genre"]
+        rating = movie["rating"]
+        if genre in genre_ratings:
+            genre_ratings[genre]["total"] +=rating
+            genre_ratings[genre]["count"] +=1
+        else:
+            genre_ratings[genre] = {"total":rating, "count":1}
+
+        max_avg =-1
+        best_genre = None
+        for genre, data in genre_ratings.items():
+            avg_rating = data['total'] / data['count']
+            if avg_rating > max_avg:
+                max_avg = avg_rating
+                best_genre = genre
+
+    return best_genre
+
+movies = [
+    {"title": "Inception",
+     "genre": "Science Fiction",
+     "rating": 8.8
+    },
+    {"title": "The Matrix", 
+     "genre": "Science Fiction",
+     "rating": 8.7
+    },
+    {"title": "Pride and Prejudice", 
+     "genre": "Romance",
+     "rating": 7.8
+    },
+    {"title": "Sense and Sensibility", 
+     "genre": "Romance",
+     "rating": 7.7
+    }
+]
+
+print(most_popular_genre(movies))
+'''
+
+#8
+'''
+def quality_control(product_scores,threshold):
+
+    new_dict = {}
+
+    for product in product_scores:
+
+        if product_scores[product] >= threshold:
+            new_dict[product] = "pass"
+        else:
+            new_dict[product] = "fail"
+
+    return new_dict
+
+product_scores = {"x0123": 75, "x0124": 40, "x0125": 90, "x0126": 55}
+threshold = 60
+print(quality_control(product_scores, threshold))
 '''
