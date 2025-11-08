@@ -89,4 +89,34 @@ nums2 = [0]
 print(sort_array_by_parity(nums))
 print(sort_array_by_parity(nums2))
 '''
+#5
+'''
+#loop through each word in list
+    #decalre two pointers (left,right)
+    #
 
+def first_palindrome(words):
+    for i in words:
+        left = 0
+        right = len(i)-1
+        while left<right:
+            if i[left] == i[right]:
+                left +=1
+                right -=1
+            else:
+                break
+        else:
+            return i 
+    return ""
+words = ["abc","car","ada","racecar","cool"]
+palindrome1 = first_palindrome(words)
+print(palindrome1)
+
+words2 = ["abc","racecar","cool"]
+palindrome2 = first_palindrome(words2)
+print(palindrome2)
+
+words3 = ["abc", "def", "ghi"]
+palindrome3 = first_palindrome(words3)
+print(palindrome3)
+'''
